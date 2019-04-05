@@ -1,0 +1,102 @@
+- hostname: 'csr1000vpython01'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.101'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.101'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.101'
+      subnet_mask: '255.255.255.0'
+- hostname: 'csr1000vpython02'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.102'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.102'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.102'
+      subnet_mask: '255.255.255.0'
+- hostname: 'csr1000vpython03'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.103'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.103'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.103'
+      subnet_mask: '255.255.255.0'
+- hostname: 'csr1000vpython04'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.104'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.104'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.104'
+      subnet_mask: '255.255.255.0'
+- hostname: 'csr1000vpython05'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.105'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.105'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.105'
+      subnet_mask: '255.255.255.0'
+- hostname: 'csr1000vpython06'
+  username: 'python'
+  password: 'cisco'
+  connection_address: '10.3.255.106'
+  netconf_enabled: true
+  interfaces:
+    ethernet:
+    - name: 'GigabitEthernet1'
+      description: 'Interface Gi0'
+      subnet_mask: '255.255.255.0'
+      ip_address: '10.3.255.106'
+      negotiation: 'auto'
+    loopback:
+    - name: 'Loopback100'
+      description: 'Interface Loopback100'
+      ip_address: '10.3.254.106'
+      subnet_mask: '255.255.255.0'

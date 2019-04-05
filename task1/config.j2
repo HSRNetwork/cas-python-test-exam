@@ -1,0 +1,192 @@
+service timestamps debug datetime msec
+service timestamps log datetime msec
+platform qfp utilization monitor load 80
+no platform punt-keepalive disable-kernel-core
+platform console virtual
+!
+hostname {{ hostname }}
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition TESTVRFLab
+ description lab is so much fun
+ rd 9.9.9.9:100
+ route-target export 200:1
+ route-target import 200:1
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+
+
+enable secret 5 $1$ac/D$6v6ZFrBz1LuA8eiHIQXKP0
+!
+!
+transport-map type persistent webui https-webui
+ secure-server
+!
+aaa new-model
+!
+!
+aaa authentication login default local
+aaa authorization exec default local none
+!
+!
+!
+!
+!
+aaa session-id common
+!
+!
+!
+!
+!
+!
+!
+!
+!
+no ip domain lookup
+ip domain name lab.ins.hsr.ch
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+subscriber templating
+!
+!
+!
+!
+!
+!
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+crypto pki trustpoint TP-self-signed-3382230601
+ enrollment selfsigned
+ subject-name cn=IOS-Self-Signed-Certificate-3382230601
+ revocation-check none
+ rsakeypair TP-self-signed-3382230601
+!
+!
+license udi pid CSR1000V sn 964NZ16FCY4
+license accept end user agreement
+license boot level ax
+diagnostic bootup level minimal
+spanning-tree extend system-id
+!
+netconf-yang cisco-odm actions OSPF
+netconf-yang cisco-odm actions IPRoute
+netconf-yang cisco-odm actions Diffserv
+netconf-yang cisco-odm actions BFDNeighbors
+netconf-yang cisco-odm actions BridgeDomain
+netconf-yang cisco-odm actions VirtualService
+netconf-yang cisco-odm actions EthernetCFMStats
+netconf-yang cisco-odm actions MPLSLDPNeighbors
+netconf-yang cisco-odm actions MPLSStaticBinding
+netconf-yang cisco-odm actions MPLSForwardingTable
+netconf-yang
+!
+restconf
+!
+username python privilege 15 secret 5 $1$BWro$/2EY8kG.GUGM1SMizve310
+!
+redundancy
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+{# TODO: This somehow does not work
+    {% for interface in interfaces %}
+    interface {{ interface.name }}
+     description {{ interface.description }}
+     ip address {{ interface.ip_address }} {{ interface.subnet_mask }}
+     negotiation {{ interface.negotiation }}
+    !
+    {% endfor %}
+#}
+!
+virtual-service csr_mgmt
+ ip shared host-interface GigabitEthernet1
+ activate
+!
+ip forward-protocol nd
+no ip http server
+ip http authentication local
+ip http secure-server
+ip route 0.0.0.0 0.0.0.0 10.3.255.1
+!
+ip ssh version 2
+ip ssh server algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip ssh client algorithm encryption aes128-ctr aes192-ctr aes256-ctr
+ip scp server enable
+!
+!
+!
+!
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+line con 0
+ stopbits 1
+line vty 0 4
+ privilege level 15
+ logging synchronous
+ transport preferred ssh
+ transport input ssh
+line vty 5 15
+ privilege level 15
+!
+transport type persistent webui input https-webui
+!
+{% if netconf_enabled %}
+netconf-yang
+netconf ssh
+{% endif %}
+!
+archive
+ path flash:old_config
+!
+!
+!
+end
