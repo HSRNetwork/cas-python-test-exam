@@ -1,4 +1,4 @@
-# Task1
+# Task2
 ## Aufgabenstellung
 Nachdem Dein Chef das neue Konfigurationsgenerierungtool gesehen hat ist er mit der Netzwerkautomatisierung auf den Geschmack gekommen. Leider traut er sich jedoch nicht ganz ,deshalb beauftragt er dich damit die bisherige Konfiguration von Routern auszulesen um diese mit der gewünschten Konfiguration zu überprüfen.
 Dein kranker Kollege ist inzwischen auch wieder da, benötigt jedoch bereits wieder deine Hilfe.
