@@ -4,13 +4,19 @@ Nachdem Dein Chef das neue Konfigurationsgenerierungtool gesehen hat ist er mit 
 Dein kranker Kollege ist inzwischen auch wieder da, benötigt jedoch bereits wieder deine Hilfe.
 1. Löse die Probleme, welche im Programm vorhanden sind
 2. Erweitere das Programm sodass es die folgenden Voraussetzungen erfüllt:
-    * Die Konfiguration soll über die REST-API von den Geräten abgefragt
+    * Die Konfiguration soll über die REST-API von den Geräten abgefragt. Es sind dabei lediglich die folgenden Attribute gewünscht.
         * HOSTNAME
         * INTERFACES
+            * Name
+            * Description
+            * Subnetmask
+            * Ip address
         * VRFS
-   * Speichere die abgefragten Daten im YAML Format ab
+            * Name
+            * rd
+   * Speichere die abgefragten Daten im YAML Format ab. 
    * Die bereits vorhandenen Daten sollen ebenfalls im YAML eingepflegt werden:
-        * USERNAME
-        * PASSWORD
-        * CONNECTION_ADRESS
+        * Username
+        * Password
+        * Connection_address
  
